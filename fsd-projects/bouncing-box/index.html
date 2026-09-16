@@ -29,7 +29,6 @@
   <body class="board">
     <!-- HTML for the box -->
     <div class="box">?</div>
-
     <script>
       (function () {
         "use strict";
@@ -69,9 +68,9 @@
         //////////////////////////////////////////////////////////////////
 
         // TODO 2 - Variable declarations
-
-
-
+        let positionX = 0;
+        positionX = positionX + 10;
+        let points = 0;
 
 
         /**
@@ -80,10 +79,10 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
+          moveBoxTo(positionX);
+          moveBoxTo(boardWidth);
 
-        
 
-          
         }
 
         /**
@@ -94,14 +93,15 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
-
+          changeBoxText(points);
+          points = points + 1;
 
 
 
         }
 
 
-        
+
       })();
     </script>
   </body>
