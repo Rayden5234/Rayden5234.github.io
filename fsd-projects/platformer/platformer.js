@@ -30,16 +30,16 @@ $(function () {
     // toggleGrid();
 
     // TODO 2 - Create Platforms
-    createPlatform(500, 250, 100, 10,"blue")
-    createPlatform(600, 650, 200, 50,"red")
-    createPlatform(900, 550, 100, 25,"green")
-    createPlatform(510, 450, 200, 15,"yellow")
-    createPlatform(1200, 450, 250, 10,"pink")
-    createPlatform(1000, 550, 10, 150,"purple")
-    createPlatform(1200, 650, 300, 50,"cyan")
-    createPlatform(0, 525, 430, 10,"brown")
-    createPlatform(850, 320, 200, 40,"black")
-    createPlatform(940, 0, 25, 320,"orange")
+    createPlatform(500, 250, 100, 10, "blue")
+    createPlatform(600, 650, 200, 50, "red")
+    createPlatform(900, 550, 100, 25, "green")
+    createPlatform(510, 450, 200, 15, "yellow")
+    createPlatform(1200, 450, 250, 10, "pink")
+    createPlatform(1000, 550, 10, 150, "purple")
+    createPlatform(1200, 650, 300, 50, "cyan")
+    createPlatform(0, 525, 430, 10, "brown")
+    createPlatform(850, 320, 200, 40, "black")
+    createPlatform(940, 0, 25, 320, "orange")
     createPlatform(420, 525, 10, 120)
 
 
