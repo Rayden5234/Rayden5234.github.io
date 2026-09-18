@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Annoying Orange Clicker</title>
+       <style>
+        #title{
+            font-family: 'Times New Roman', Times, serif;
+            color:orange;
+            text-align: center;
+            font-size: 50px;
+        }
+        h1{
+            font-size: 32px;
+            color:orangered;
+            text-align: center;
+        }
+        #clickPower{
+            font-size: 20px;
+            color:orangered;
+            text-align: center;
+        }
+        #orange{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: 10px solid red;
+            max-width: 30%;
+            height: auto;
+        }
+        body{
+            background-color:rgb(255, 244, 144);
+        }
+        h2{
+            text-align: center;
+            background-color: red;
+            color: yellow;
+            font-size: 25px;
+        }
+        #text{
+            font-size: 20px;
+            color:orangered;
+        }
+        h3{
+            text-align: center;
+            background-color: lightgray;
+            color: rgb(99, 98, 98);
+            font-size: 25px;
+        }
+        #pear{
+            max-width: 10.5%;
+            border: 10px solid red;
+        }
+        #apple{
+            max-width: 15%;
+            border: 10px solid red;
+        }
+        h4{
+            text-align: center;
+            background-color: black;
+            color: red;
+            font-size: 25px;
+        }
+       </style>
+    </head>
+    <body>
+        <p id="title">Annoying Orange Clicker</p>
+        <img id="orange" src="https://yt3.googleusercontent.com/AlHhTGvrNJR7ZkaNvdUKT8zz3wr2SKinW-bv5poVa1eNX7piLxxQ08hY_-O3WD1qhGxO3N373w=s900-c-k-c0x00ffffff-no-rj" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3yakV6eVB1054TLkzOAkKKENeueuJ92iRv7Jhe4XzeqDk4XGwWhERoSxO&s=10">
+        <h1 id="score">score: </h1>
+        <h1 id="clickPower">Click Power: </h1>
+        <h2 id="button">Wide Upgrade Button - 20$</h2>
+        <h2 id="button2">Powerful Wide Upgrade Button - 200$</h2>
+        <h2 id="button3">More Powerful Wide Upgrade Button - 2000$</h2>
+        <h2 id="button4">Most Powerful Wide Upgrade Button - 100000000$</h2>
+        <img id="pear" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDbHCX0ipnXjhuxSZ7wyCEPjeUM_EHYAxGWVP8yfXeQ&s=10"> <img id="apple" src="https://ih1.redbubble.net/image.5865535324.9916/st,large,507x507-pad,600x600,f8f8f8.webp">
+        <p id="text">---------50$------------------------500$--------------</p>
+        <h3 id="knife">Wide Knife Button</h3>
+        <h4 id="death">Wide Death Button</h4>
+    </body>
+</html>
+<script>
+    let score = 0
+    let deadOrange = false
+    let helpers = 0
+    document.getElementById("score").innerText="Score: "+score
+    document.getElementById("orange").addEventListener("click",addscore)
+    function addscore(){
+        score=score+clickPower
+        if(deadOrange===false){
+            document.getElementById("score").innerText="Score: "+score
+        }
+    }
+    let clickPower = 1
+    document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+    //adds 1 click power//
+    document.getElementById("button").addEventListener("click",addupgrade)
+    function addupgrade(){
+        if(score>=20){
+            score=score-20
+            clickPower=clickPower+1
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+            document.getElementById("score").innerText="Score: "+score
+        }
+    }
+    //adds 10 click power//
+    document.getElementById("button2").addEventListener("click",addupgrade2)
+    function addupgrade2(){
+        if(score>=200){
+            score=score-200
+            clickPower=clickPower+10
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+            document.getElementById("score").innerText="Score: "+score
+        }
+    }
+    //adds 100 click power//
+    document.getElementById("button3").addEventListener("click",addupgrade3)
+    function addupgrade3(){
+        if(score>=2000){
+            score=score-2000
+            clickPower=clickPower+100
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+            document.getElementById("score").innerText="Score: "+score
+        }
+    }
+    //adds 999999 click power//
+    document.getElementById("button4").addEventListener("click",addupgrade4)
+    function addupgrade4(){
+        if(score>=100000000){
+            score=score-100000000
+            clickPower=clickPower+999999
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+            document.getElementById("score").innerText="Score: "+score
+        }
+    }
+    //auto clicker//
+    document.getElementById("pear").addEventListener("click",addpear)
+    function addpear(){
+        if(score>=50){
+            score=score-50
+            helpers=helpers+1
+            document.getElementById("score").innerText="Score: "+score
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+        }
+    }
+    document.getElementById("apple").addEventListener("click",addapple)
+    function addapple(){
+        if(score>=500){
+            score=score-500
+            helpers=helpers+10
+            document.getElementById("score").innerText="Score: "+score
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+        }
+    }
+    setInterval(autoClicker,1000)
+    function autoClicker(){
+        score=score+helpers
+        if(deadOrange===false){
+            document.getElementById("score").innerText="Score: "+score
+        }
+    }
+    
+    //restarts progress//
+    document.getElementById("knife").addEventListener("click",addknife)
+    function addknife(){
+        if(score>0){
+            score=score-score
+            clickPower=clickPower-clickPower+1
+            helpers=helpers-helpers
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+            document.getElementById("score").innerText="Score: "+score
+        }
+    }
+    //Just kills the game and you cant reverse it lol//
+    document.getElementById("death").addEventListener("click",addDeath)
+    function addDeath(){
+        if(score>=0){
+            score=score-score
+            clickPower=clickPower-clickPower
+            helpers=helpers-helpers
+            deadOrange=true
+            document.getElementById("score").innerText="The Orange Died D:"
+            document.getElementById("clickPower").innerText="Womp Womp"
+        }
+    }
+</script>
