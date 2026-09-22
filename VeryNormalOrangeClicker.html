@@ -47,11 +47,19 @@
             font-size: 25px;
         }
         #pear{
-            max-width: 10.5%;
+            max-width: 39%;
             border: 10px solid red;
         }
         #apple{
-            max-width: 15%;
+            max-width: 55.5%;
+            border: 10px solid red;
+        }
+        #lemon{
+            max-width: 80%;
+            border: 10px solid red;
+        }
+        #marshmallow{
+            max-width: 53%;
             border: 10px solid red;
         }
         h4{
@@ -60,19 +68,42 @@
             color: red;
             font-size: 25px;
         }
+        #row1{
+            display: flex;
+        }
+        #column{
+            flex: 10%;
+            padding: 0px;
+        }
        </style>
     </head>
     <body>
         <p id="title">Annoying Orange Clicker</p>
-        <img id="orange" src="https://yt3.googleusercontent.com/AlHhTGvrNJR7ZkaNvdUKT8zz3wr2SKinW-bv5poVa1eNX7piLxxQ08hY_-O3WD1qhGxO3N373w=s900-c-k-c0x00ffffff-no-rj" alt="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3yakV6eVB1054TLkzOAkKKENeueuJ92iRv7Jhe4XzeqDk4XGwWhERoSxO&s=10">
+        <img id="orange" src="https://yt3.googleusercontent.com/AlHhTGvrNJR7ZkaNvdUKT8zz3wr2SKinW-bv5poVa1eNX7piLxxQ08hY_-O3WD1qhGxO3N373w=s900-c-k-c0x00ffffff-no-rj" alt="The Annoying Orange himself">
         <h1 id="score">score: </h1>
         <h1 id="clickPower">Click Power: </h1>
         <h2 id="button">Wide Upgrade Button - 20$</h2>
         <h2 id="button2">Powerful Wide Upgrade Button - 200$</h2>
         <h2 id="button3">More Powerful Wide Upgrade Button - 2000$</h2>
         <h2 id="button4">Most Powerful Wide Upgrade Button - 100000000$</h2>
-        <img id="pear" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDbHCX0ipnXjhuxSZ7wyCEPjeUM_EHYAxGWVP8yfXeQ&s=10"> <img id="apple" src="https://ih1.redbubble.net/image.5865535324.9916/st,large,507x507-pad,600x600,f8f8f8.webp">
-        <p id="text">---------50$------------------------500$--------------</p>
+        <div id="row1">
+            <div id="column">
+                <img id="pear" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDbHCX0ipnXjhuxSZ7wyCEPjeUM_EHYAxGWVP8yfXeQ&s=10"> 
+                <figcaption id="text">50$ +1HP</figcaption>
+            </div>
+            <div id="column">
+                <img id="apple" src="https://ih1.redbubble.net/image.5865535324.9916/st,large,507x507-pad,600x600,f8f8f8.webp">
+                <figcaption id="text">500$ +10HP</figcaption>
+            </div>
+            <div id="column">
+                <img id="lemon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk4obDEBkGTI0-81OJB_pM2OIeAL_LXWWPPLoeACcYT6oXTbPvhg_dAmA-&s=10">
+                <figcaption id="text">5000$ +100HP</figcaption>
+            </div>
+            <div id="column">
+                <img id="marshmallow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6PwgnsYC4cF6k2iXt_xbhUOVjHYGoXym0ZeNwVPRr1ePF4jo0AcqSQ0&s=10">
+                <figcaption id="text">50000$ +1000HP</figcaption>
+            </div>
+        </div>
         <h3 id="knife">Wide Knife Button</h3>
         <h4 id="death">Wide Death Button</h4>
     </body>
@@ -150,10 +181,28 @@
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
         }
     }
+    document.getElementById("lemon").addEventListener("click",addlemon)
+    function addlemon(){
+        if(score>=5000){
+            score=score-5000
+            helpers=helpers+100
+            document.getElementById("score").innerText="Score: "+score
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+        }
+    }
+    document.getElementById("marshmallow").addEventListener("click",addmarshmallow)
+    function addmarshmallow(){
+        if(score>=50000){
+            score=score-50000
+            helpers=helpers+1000
+            document.getElementById("score").innerText="Score: "+score
+            document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+        }
+    }
     setInterval(autoClicker,1000)
     function autoClicker(){
-        score=score+helpers
         if(deadOrange===false){
+            score=score+helpers
             document.getElementById("score").innerText="Score: "+score
         }
     }
@@ -161,7 +210,7 @@
     //restarts progress//
     document.getElementById("knife").addEventListener("click",addknife)
     function addknife(){
-        if(score>0){
+        if(score>=0){
             score=score-score
             clickPower=clickPower-clickPower+1
             helpers=helpers-helpers
@@ -179,6 +228,9 @@
             deadOrange=true
             document.getElementById("score").innerText="The Orange Died D:"
             document.getElementById("clickPower").innerText="Womp Womp"
+            //I have no clue how to change the image :|//
+            document.getElementById("orange").scr = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3yakV6eVB1054TLkzOAkKKENeueuJ92iRv7Jhe4XzeqDk4XGwWhERoSxO&s=10";
+
         }
     }
 </script>
