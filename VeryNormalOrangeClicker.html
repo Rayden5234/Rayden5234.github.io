@@ -36,7 +36,19 @@
             color: yellow;
             font-size: 25px;
         }
-        #text{
+        #pearText{
+            font-size: 20px;
+            color:orangered;
+        }
+        #appleText{
+            font-size: 20px;
+            color:orangered;
+        }
+        #lemonText{
+            font-size: 20px;
+            color:orangered;
+        }
+        #marshmallowText{
             font-size: 20px;
             color:orangered;
         }
@@ -55,12 +67,17 @@
             border: 10px solid red;
         }
         #lemon{
-            max-width: 80%;
+            max-width: 55%;
             border: 10px solid red;
         }
         #marshmallow{
             max-width: 53%;
             border: 10px solid red;
+        }
+        #randomText{
+            text-align: center;
+            color: rgb(255, 244, 144);
+            font-size: 32px;
         }
         h4{
             text-align: center;
@@ -89,29 +106,33 @@
         <div id="row1">
             <div id="column">
                 <img id="pear" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDbHCX0ipnXjhuxSZ7wyCEPjeUM_EHYAxGWVP8yfXeQ&s=10"> 
-                <figcaption id="text">50$ +1HP</figcaption>
+                <figcaption id="pearText">50$ +1HP</figcaption>
             </div>
             <div id="column">
                 <img id="apple" src="https://ih1.redbubble.net/image.5865535324.9916/st,large,507x507-pad,600x600,f8f8f8.webp">
-                <figcaption id="text">500$ +10HP</figcaption>
+                <figcaption id="appleText">500$ +10HP</figcaption>
             </div>
             <div id="column">
                 <img id="lemon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk4obDEBkGTI0-81OJB_pM2OIeAL_LXWWPPLoeACcYT6oXTbPvhg_dAmA-&s=10">
-                <figcaption id="text">5000$ +100HP</figcaption>
+                <figcaption id="lemonText">5000$ +100HP</figcaption>
             </div>
             <div id="column">
                 <img id="marshmallow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6PwgnsYC4cF6k2iXt_xbhUOVjHYGoXym0ZeNwVPRr1ePF4jo0AcqSQ0&s=10">
-                <figcaption id="text">50000$ +1000HP</figcaption>
+                <figcaption id="marshmallowText">50000$ +1000HP</figcaption>
             </div>
         </div>
-        <h3 id="knife">Wide Knife Button</h3>
+        <h3 id="knife">Wide Knife Button - 100000$</h3>
+        <p id="randomText">Ends the game^ WIP</p>
         <h4 id="death">Wide Death Button</h4>
     </body>
 </html>
 <script>
-    let score = 0
+    let score = 1
     let deadOrange = false
     let helpers = 0
+    let multiplier = 1
+    let inflation = 1
+    let knifePower = 1
     document.getElementById("score").innerText="Score: "+score
     document.getElementById("orange").addEventListener("click",addscore)
     function addscore(){
@@ -125,9 +146,9 @@
     //adds 1 click power//
     document.getElementById("button").addEventListener("click",addupgrade)
     function addupgrade(){
-        if(score>=20){
-            score=score-20
-            clickPower=clickPower+1
+        if(score>=20*inflation){
+            score=score-20*inflation
+            clickPower=clickPower+1*multiplier
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
             document.getElementById("score").innerText="Score: "+score
         }
@@ -135,9 +156,9 @@
     //adds 10 click power//
     document.getElementById("button2").addEventListener("click",addupgrade2)
     function addupgrade2(){
-        if(score>=200){
-            score=score-200
-            clickPower=clickPower+10
+        if(score>=200*inflation){
+            score=score-200*inflation
+            clickPower=clickPower+10*multiplier
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
             document.getElementById("score").innerText="Score: "+score
         }
@@ -145,9 +166,9 @@
     //adds 100 click power//
     document.getElementById("button3").addEventListener("click",addupgrade3)
     function addupgrade3(){
-        if(score>=2000){
-            score=score-2000
-            clickPower=clickPower+100
+        if(score>=2000*inflation){
+            score=score-2000*inflation
+            clickPower=clickPower+100*multiplier
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
             document.getElementById("score").innerText="Score: "+score
         }
@@ -157,48 +178,53 @@
     function addupgrade4(){
         if(score>=100000000){
             score=score-100000000
-            clickPower=clickPower+999999
+            clickPower=clickPower+999999*multiplier
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
             document.getElementById("score").innerText="Score: "+score
         }
     }
     //auto clicker//
+    //pear - adds 1 helper power
     document.getElementById("pear").addEventListener("click",addpear)
     function addpear(){
-        if(score>=50){
-            score=score-50
-            helpers=helpers+1
+        if(score>=50*inflation){
+            score=score-50*inflation
+            helpers=helpers+1*multiplier
             document.getElementById("score").innerText="Score: "+score
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
         }
     }
+    //apple - adds 10 helper power//
     document.getElementById("apple").addEventListener("click",addapple)
     function addapple(){
-        if(score>=500){
-            score=score-500
-            helpers=helpers+10
+        if(score>=500*inflation){
+            score=score-500*inflation
+            helpers=helpers+10*multiplier
             document.getElementById("score").innerText="Score: "+score
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
         }
     }
+    //lemon - adds 100 helper power//
     document.getElementById("lemon").addEventListener("click",addlemon)
     function addlemon(){
-        if(score>=5000){
-            score=score-5000
-            helpers=helpers+100
+        if(score>=5000*inflation){
+            score=score-5000*inflation
+            helpers=helpers+100*multiplier
             document.getElementById("score").innerText="Score: "+score
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
         }
     }
+    //marshmallow - adds 1000 helper power//
     document.getElementById("marshmallow").addEventListener("click",addmarshmallow)
     function addmarshmallow(){
-        if(score>=50000){
-            score=score-50000
-            helpers=helpers+1000
+        if(score>=50000*inflation){
+            score=score-50000*inflation
+            helpers=helpers+1000*multiplier
             document.getElementById("score").innerText="Score: "+score
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
         }
     }
+    //the thing that auto clicks :O//
     setInterval(autoClicker,1000)
     function autoClicker(){
         if(deadOrange===false){
@@ -207,15 +233,65 @@
         }
     }
     
-    //restarts progress//
+    //restarts progress and upgrades everything//
     document.getElementById("knife").addEventListener("click",addknife)
     function addknife(){
-        if(score>=0){
+        if(score>=100000*knifePower){
             score=score-score
-            clickPower=clickPower-clickPower+1
+            multiplier=multiplier+1
+            clickPower=clickPower-clickPower+multiplier
             helpers=helpers-helpers
+            inflation=inflation+0.5
+            knifePower=knifePower+1.5
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
             document.getElementById("score").innerText="Score: "+score
+            document.getElementById("button").innerText="Wide Upgrade Button - "+20*inflation+"$"
+            document.getElementById("button2").innerText="Powerful Wide Upgrade Button - "+200*inflation+"$"
+            document.getElementById("button3").innerText="More Powerful Wide Upgrade Button - "+2000*inflation+"$"
+            document.getElementById("pearText").innerText=50*inflation+"$ +"+1*multiplier+"HP"
+            document.getElementById("appleText").innerText=500*inflation+"$ +"+10*multiplier+"HP"
+            document.getElementById("lemonText").innerText=5000*inflation+"$ +"+100*multiplier+"HP"
+            document.getElementById("marshmallowText").innerText=50000*inflation+"$ +"+1000*multiplier+"HP"
+            document.getElementById("knife").innerText="Wide Knife Button - "+100000*knifePower+"$"
+            if(knifePower===2.5){
+                document.querySelector("body").style.backgroundColor = "greenyellow";
+                document.getElementById("randomText").style.color = "greenyellow";
+            } else if(knifePower===4){
+                document.querySelector("body").style.backgroundColor = "orangered";
+                document.getElementById("score").style.color = "yellow";
+                document.getElementById("clickPower").style.color = "yellow";
+                document.getElementById("button").style.color = "red";
+                document.getElementById("button").style.backgroundColor = "yellow";
+                document.getElementById("button2").style.color = "red";
+                document.getElementById("button2").style.backgroundColor = "yellow";
+                document.getElementById("button3").style.color = "red";
+                document.getElementById("button3").style.backgroundColor = "yellow";
+                document.getElementById("button4").style.color = "red";
+                document.getElementById("button4").style.backgroundColor = "yellow";
+                document.getElementById("pearText").style.color = "yellow";
+                document.getElementById("appleText").style.color = "yellow";
+                document.getElementById("lemonText").style.color = "yellow";
+                document.getElementById("marshmallowText").style.color = "yellow";
+                document.getElementById("randomText").style.color = "orangered";
+            } else if(knifePower===5.5){
+                document.querySelector("body").style.backgroundColor = "rgb(28, 28, 28)";
+                document.getElementById("score").style.color = "orangered";
+                document.getElementById("clickPower").style.color = "orangered";
+                document.getElementById("button").style.color = "yellow";
+                document.getElementById("button").style.backgroundColor = "red";
+                document.getElementById("button2").style.color = "yellow";
+                document.getElementById("button2").style.backgroundColor = "red";
+                document.getElementById("button3").style.color = "yellow";
+                document.getElementById("button3").style.backgroundColor = "red";
+                document.getElementById("button4").style.color = "yellow";
+                document.getElementById("button4").style.backgroundColor = "red";
+                document.getElementById("pearText").style.color = "orangered";
+                document.getElementById("appleText").style.color = "orangered";
+                document.getElementById("lemonText").style.color = "orangered";
+                document.getElementById("marshmallowText").style.color = "orangered";
+                document.getElementById("knife").innerText="Powerful Wide Knife Button - "+100000*knifePower+"$"
+                document.getElementById("randomText").style.color = "red";
+            }
         }
     }
     //Just kills the game and you cant reverse it lol//
@@ -225,6 +301,7 @@
             score=score-score
             clickPower=clickPower-clickPower
             helpers=helpers-helpers
+            mulitplyer=mulitplyer-mulitplyer
             deadOrange=true
             document.getElementById("score").innerText="The Orange Died D:"
             document.getElementById("clickPower").innerText="Womp Womp"
