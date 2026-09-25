@@ -97,8 +97,8 @@
     <body>
         <p id="title">Annoying Orange Clicker</p>
         <img id="orange" src="https://yt3.googleusercontent.com/AlHhTGvrNJR7ZkaNvdUKT8zz3wr2SKinW-bv5poVa1eNX7piLxxQ08hY_-O3WD1qhGxO3N373w=s900-c-k-c0x00ffffff-no-rj" alt="The Annoying Orange himself">
-        <h1 id="score">score: </h1>
-        <h1 id="clickPower">Click Power: </h1>
+        <h1 id="score">score: Error</h1>
+        <h1 id="clickPower">Click Power: Error</h1>
         <h2 id="button">Wide Upgrade Button - 20$</h2>
         <h2 id="button2">Powerful Wide Upgrade Button - 200$</h2>
         <h2 id="button3">More Powerful Wide Upgrade Button - 2000$</h2>
@@ -127,7 +127,7 @@
     </body>
 </html>
 <script>
-    let score = 1
+    let score = 0
     let deadOrange = false
     let helpers = 0
     let multiplier = 1
@@ -301,7 +301,6 @@
             score=score-score
             clickPower=clickPower-clickPower
             helpers=helpers-helpers
-            mulitplyer=mulitplyer-mulitplyer
             deadOrange=true
             document.getElementById("score").innerText="The Orange Died D:"
             document.getElementById("clickPower").innerText="Womp Womp"
