@@ -97,32 +97,32 @@
     <body>
         <p id="title">Annoying Orange Clicker</p>
         <img id="orange" src="https://yt3.googleusercontent.com/AlHhTGvrNJR7ZkaNvdUKT8zz3wr2SKinW-bv5poVa1eNX7piLxxQ08hY_-O3WD1qhGxO3N373w=s900-c-k-c0x00ffffff-no-rj" alt="The Annoying Orange himself">
-        <h1 id="score">score: Error</h1>
-        <h1 id="clickPower">Click Power: Error</h1>
-        <h2 id="button">Wide Upgrade Button - 20$</h2>
-        <h2 id="button2">Powerful Wide Upgrade Button - 200$</h2>
-        <h2 id="button3">More Powerful Wide Upgrade Button - 2000$</h2>
-        <h2 id="button4">Most Powerful Wide Upgrade Button - 100000000$</h2>
+        <h1 id="score">Error</h1>
+        <h1 id="clickPower">Error</h1>
+        <h2 id="button">There is</h2>
+        <h2 id="button2">an Error.</h2>
+        <h2 id="button3">You stinky</h2>
+        <h2 id="button4">go fix it. >:(</h2>
         <div id="row1">
             <div id="column">
-                <img id="pear" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDbHCX0ipnXjhuxSZ7wyCEPjeUM_EHYAxGWVP8yfXeQ&s=10"> 
+                <img id="pear" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWDbHCX0ipnXjhuxSZ7wyCEPjeUM_EHYAxGWVP8yfXeQ&s=10" alt="Hey Pear!"> 
                 <figcaption id="pearText">50$ +1HP</figcaption>
             </div>
             <div id="column">
-                <img id="apple" src="https://ih1.redbubble.net/image.5865535324.9916/st,large,507x507-pad,600x600,f8f8f8.webp">
+                <img id="apple" src="https://ih1.redbubble.net/image.5865535324.9916/st,large,507x507-pad,600x600,f8f8f8.webp" alt="Hey Apple!">
                 <figcaption id="appleText">500$ +10HP</figcaption>
             </div>
             <div id="column">
-                <img id="lemon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk4obDEBkGTI0-81OJB_pM2OIeAL_LXWWPPLoeACcYT6oXTbPvhg_dAmA-&s=10">
+                <img id="lemon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk4obDEBkGTI0-81OJB_pM2OIeAL_LXWWPPLoeACcYT6oXTbPvhg_dAmA-&s=10" alt="Hey Lemon!">
                 <figcaption id="lemonText">5000$ +100HP</figcaption>
             </div>
             <div id="column">
-                <img id="marshmallow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6PwgnsYC4cF6k2iXt_xbhUOVjHYGoXym0ZeNwVPRr1ePF4jo0AcqSQ0&s=10">
+                <img id="marshmallow" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST6PwgnsYC4cF6k2iXt_xbhUOVjHYGoXym0ZeNwVPRr1ePF4jo0AcqSQ0&s=10" alt="Hey Marshmallow!">
                 <figcaption id="marshmallowText">50000$ +1000HP</figcaption>
             </div>
         </div>
         <h3 id="knife">Wide Knife Button - 100000$</h3>
-        <p id="randomText">Ends the game^ WIP</p>
+        <p id="randomText">Win Game^</p>
         <h4 id="death">Wide Death Button</h4>
     </body>
 </html>
@@ -133,6 +133,7 @@
     let multiplier = 1
     let inflation = 1
     let knifePower = 1
+    let level = 1
     document.getElementById("score").innerText="Score: "+score
     document.getElementById("orange").addEventListener("click",addscore)
     function addscore(){
@@ -143,6 +144,11 @@
     }
     let clickPower = 1
     document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+    document.getElementById("score").innerText="Score: "+score
+    document.getElementById("button").innerText="Wide Upgrade Button - "+20*inflation+"$"
+    document.getElementById("button2").innerText="Powerful Wide Upgrade Button - "+200*inflation+"$"
+    document.getElementById("button3").innerText="More Powerful Wide Upgrade Button - "+2000*inflation+"$"
+    document.getElementById("button4").innerText="Most Powerful Wide Upgrade Button - "+100000000+"$"
     //adds 1 click power//
     document.getElementById("button").addEventListener("click",addupgrade)
     function addupgrade(){
@@ -229,6 +235,8 @@
     function autoClicker(){
         if(deadOrange===false){
             score=score+helpers
+        }
+        if(helpers>=1){
             document.getElementById("score").innerText="Score: "+score
         }
     }
@@ -243,6 +251,7 @@
             helpers=helpers-helpers
             inflation=inflation+0.5
             knifePower=knifePower+1.5
+            level=level+1
             document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
             document.getElementById("score").innerText="Score: "+score
             document.getElementById("button").innerText="Wide Upgrade Button - "+20*inflation+"$"
@@ -291,22 +300,32 @@
                 document.getElementById("marshmallowText").style.color = "orangered";
                 document.getElementById("knife").innerText="Powerful Wide Knife Button - "+100000*knifePower+"$"
                 document.getElementById("randomText").style.color = "red";
+            } else if(knifePower===7){
+                document.querySelector("body").style.backgroundColor = "rgb(255, 244, 144)"
+                document.getElementById("score").innerText= "You Win!"
+                document.getElementById("clickPower").innerText = "Continue clicking to see how far you can get."
+                document.getElementById("randomText").innerText="level: "+level
+            } else {
+                document.getElementById("score").innerText="Score: "+score
+                document.getElementById("clickPower").innerText="Click Power: "+clickPower+" Helpers Power: "+helpers
+                document.getElementById("randomText").innerText="level: "+level
             }
         }
     }
     //Just kills the game and you cant reverse it lol//
     document.getElementById("death").addEventListener("click",addDeath)
     function addDeath(){
-        if(score>=0){
-            score=score-score
-            clickPower=clickPower-clickPower
-            helpers=helpers-helpers
-            deadOrange=true
-            document.getElementById("score").innerText="The Orange Died D:"
-            document.getElementById("clickPower").innerText="Womp Womp"
-            //I have no clue how to change the image :|//
-            document.getElementById("orange").scr = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3yakV6eVB1054TLkzOAkKKENeueuJ92iRv7Jhe4XzeqDk4XGwWhERoSxO&s=10";
-
-        }
-    }
+        score=score-score
+        clickPower=clickPower-clickPower
+        helpers=helpers-helpers
+        deadOrange=true
+        document.getElementById("score").innerText="The Orange Died D:"
+        document.getElementById("clickPower").innerText="Womp Womp"
+        //I finally figured it out after 4 weeks or so :D
+        document.getElementById("orange").src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3yakV6eVB1054TLkzOAkKKENeueuJ92iRv7Jhe4XzeqDk4XGwWhERoSxO&s=10"
+        document.getElementById("pearText").innerText="What happened?"
+        document.getElementById("appleText").innerText="Holy Moly, he's dead!"
+        document.getElementById("lemonText").innerText="..."
+        document.getElementById("marshmallowText").innerText="Oh no! Orange is dead! :O"
+}
 </script>
