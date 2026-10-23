@@ -1,0 +1,101 @@
+#title{
+    font-family: 'Times New Roman', Times, serif;
+    color:orange;
+    text-align: center;
+    font-size: 50px;
+}
+h1{
+    font-size: 32px;
+    color:orangered;
+    text-align: center;
+}
+#clickPower{
+    font-size: 20px;
+    color:orangered;
+    text-align: center;
+}
+#orange{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 10px solid red;
+    max-width: 30%;
+    height: auto;
+}
+body{
+    background-color:rgb(255, 244, 144);
+}
+h2{
+    text-align: center;
+    background-color: red;
+    color: yellow;
+    font-size: 25px;
+}
+#pearText{
+    font-size: 20px;
+    color:orangered;
+    text-align: center;
+}
+#appleText{
+    font-size: 20px;
+    color:orangered;
+    text-align: center;
+}
+#lemonText{
+    font-size: 20px;
+    color:orangered;
+    text-align: center;
+}
+#marshmallowText{
+    font-size: 20px;
+    color:orangered;
+    text-align: center;
+}
+h3{
+    text-align: center;
+    background-color: lightgray;
+    color: rgb(99, 98, 98);
+    font-size: 25px;
+}
+#pear{
+    display: block;
+    margin: auto;
+    max-width: 56%;
+    border: 10px solid red;
+}
+#apple{
+    display: block;
+    margin: auto;
+    max-width: 55.5%;
+    border: 10px solid red;
+}
+#lemon{
+    display: block;
+    margin: auto;
+    max-width: 55%;
+    border: 10px solid red;
+}
+#marshmallow{
+    display: block;
+    margin: auto;
+    max-width: 53%;
+    border: 10px solid red;
+}
+#randomText{
+    text-align: center;
+    color: rgb(255, 244, 144);
+    font-size: 32px;
+}
+h4{
+    text-align: center;
+    background-color: black;
+    color: red;
+    font-size: 25px;
+}
+#row1{
+    display: flex;
+}
+#column{
+    flex: 10%;
+    padding: 0px;
+}
